@@ -1,5 +1,7 @@
 export type ApiMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
+export const ROOT_URL = 'http://localhost:3000/';
+
 export class HttpError extends Error {
     code: Number;
     text: String;
@@ -33,7 +35,7 @@ const handleResponse = async (response: Response): Promise<any> => {
 };
 
 export const apiRequest = async (endpoint: string, method: ApiMethod, body?: Object): Promise<any> => {
-    const request = new Request(`/api/v1/${endpoint}`, createRequestInit(method, body));
+    const request = new Request(`${ROOT_URL}${endpoint}`, createRequestInit(method, body));
     const response = await fetch(request);
     return handleResponse(response);
 };

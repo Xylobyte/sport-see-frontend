@@ -1,4 +1,27 @@
 main {
     width: 100%;
     height: 100%;
+    padding: 4vw;
+
+    .error-ct {
+        width: 100%;
+        height: 100%;
+
+        p {
+            color: red;
+        }
+
+        button {
+            background: var(--background-variant-color);
+            color: var(--on-background-color);
+            padding: 10px 20px;
+            border: 1px solid var(--on-background-color);
+            cursor: pointer;
+        }
+    }
+
+    h1 span {
+        font-size: inherit;
+        color: var(--primary-color);
+    }
 }
