@@ -1,7 +1,7 @@
 import "./DashboardPage.scss";
 
 function DashboardPage() {
-    return <div></div>;
+    return <main></main>;
 }
 
 export default DashboardPage;

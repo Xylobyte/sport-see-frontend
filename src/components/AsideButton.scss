@@ -1,0 +1,17 @@
+.btn-aside a {
+    background: var(--on-alternative-background-color);
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    font-size: unset;
+    display: flex;
+    border: 3px solid transparent;
+
+    &:hover {
+        border-color: var(--primary-color);
+    }
+
+    img {
+        width: 100%;
+    }
+}

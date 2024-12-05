@@ -1,0 +1,18 @@
+aside {
+    height: 100%;
+    background: var(--alternative-background-color);
+    color: var(--on-alternative-background-color);
+    width: 80px;
+
+    ul {
+        margin-bottom: 40px;
+    }
+
+    > span {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 0.7rem;
+        position: absolute;
+        bottom: 20px;
+    }
+}
