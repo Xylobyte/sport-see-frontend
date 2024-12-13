@@ -1,6 +1,7 @@
 export type ApiMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
-export const ROOT_URL = 'http://localhost:3000/';
+export const USE_MOCK = false;
+export const ROOT_URL = USE_MOCK ? "/mocks/" : 'http://localhost:3000/';
 
 export class HttpError extends Error {
     code: Number;
@@ -35,7 +36,8 @@ const handleResponse = async (response: Response): Promise<any> => {
 };
 
 export const apiRequest = async (endpoint: string, method: ApiMethod, body?: Object): Promise<any> => {
-    const request = new Request(`${ROOT_URL}${endpoint}`, createRequestInit(method, body));
+    console.log(Boolean(import.meta.env.VITE_USE_MOCK));
+    const request = new Request(`${ROOT_URL}${endpoint}${USE_MOCK ? ".json" : ""}`, createRequestInit(method, body));
     const response = await fetch(request);
     return handleResponse(response);
 };

@@ -5,7 +5,7 @@ export interface User {
     userInfos: {
         firstName: string;
         lastName: string;
-        age: number
+        age: number;
     };
     todayScore: number;
     keyData: {
@@ -13,7 +13,7 @@ export interface User {
         proteinCount: number;
         carbohydrateCount: number;
         lipidCount: number;
-    }
+    };
 }
 
 export class SportSeeAPI {
