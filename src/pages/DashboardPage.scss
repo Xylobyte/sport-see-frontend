@@ -26,9 +26,10 @@ main {
     }
 
     .grid-charts {
+        margin-top: 20px;
         display: grid;
         height: 100%;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
 }

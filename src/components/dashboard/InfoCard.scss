@@ -1,0 +1,18 @@
+.info-card {
+    padding: 20px;
+    background: var(--background-variant-color);
+
+    .icon {
+        padding: 20px;
+    }
+
+    .value {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .label {
+        color: var(--gray-color);
+        font-size: 0.85rem;
+    }
+}

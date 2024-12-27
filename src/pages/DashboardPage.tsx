@@ -4,6 +4,11 @@ import {SportSeeAPI} from "../api/SportSeeAPI.ts";
 import {UserData} from "../api/user.types.ts";
 import Activity from "../components/dashboard/Activity.tsx";
 import {ActivityData} from "../api/activity.types.ts";
+import InfoCard from "../components/dashboard/InfoCard.tsx";
+import energy from "../assets/icons/energy.svg";
+import chicken from "../assets/icons/chicken.svg";
+import apple from "../assets/icons/apple.svg";
+import cheeseburger from "../assets/icons/cheeseburger.svg";
 
 const queryParams = new URLSearchParams(window.location.search);
 const userId = parseInt(queryParams.get('userId') || "0");
@@ -59,6 +64,42 @@ function DashboardPage() {
 
             <div className="grid-charts gap-20">
                 <Activity activity={activity}/>
+
+                <InfoCard
+                    id="cal"
+                    value={user.keyData.calorieCount}
+                    unit="Kcal"
+                    label="Calories"
+                    color="red"
+                    icon={<img src={energy} alt=""/>}
+                />
+                <InfoCard
+                    id="cal"
+                    value={user.keyData.proteinCount}
+                    unit="g"
+                    label="Proteines"
+                    color="#4CB8FE"
+                    icon={<img src={chicken} alt=""/>}
+                />
+
+                <div style={{gridColumn: "1 / 4", gridRow: "3 / 5"}}></div>
+
+                <InfoCard
+                    id="cal"
+                    value={user.keyData.proteinCount}
+                    unit="g"
+                    label="Glucides"
+                    color="#FDCD19"
+                    icon={<img src={apple} alt=""/>}
+                />
+                <InfoCard
+                    id="cal"
+                    value={user.keyData.lipidCount}
+                    unit="g"
+                    label="Lipides"
+                    color="#FD5181"
+                    icon={<img src={cheeseburger} alt=""/>}
+                />
             </div>
         </>}
     </main>;
