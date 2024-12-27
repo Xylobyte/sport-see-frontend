@@ -1,4 +1,4 @@
-export type SessionsData = {
+type SessionsData = {
     kilogram: number;
     day: string;
     calories: number;

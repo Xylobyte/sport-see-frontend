@@ -1,6 +1,6 @@
-export type KindData = { [key: string]: string };
+type KindData = { [key: string]: string };
 
-export type PerfData = {
+type PerfData = {
     value: number;
     kind: number;
 }
