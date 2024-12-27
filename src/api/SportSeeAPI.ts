@@ -1,22 +1,17 @@
 import {apiRequest} from "./utils.ts";
-
-export interface User {
-    id: number;
-    userInfos: {
-        firstName: string;
-        lastName: string;
-        age: number;
-    };
-    todayScore: number;
-    keyData: {
-        calorieCount: number;
-        proteinCount: number;
-        carbohydrateCount: number;
-        lipidCount: number;
-    };
-}
+import {User} from "./user.types.ts";
+import {Activity} from "./activity.types.ts";
 
 export class SportSeeAPI {
     static getUser = async (id: number): Promise<User> =>
         (await apiRequest(`user/${id}`, "GET")).data;
+
+    static getUserActivity = async (id: number): Promise<Activity> =>
+        (await apiRequest(`user/${id}/activity`, "GET")).data;
+
+    static getUserAverageSessions = async (id: number): Promise<Activity> =>
+        (await apiRequest(`user/${id}/average-session`, "GET")).data;
+
+    static getUserPerformance = async (id: number): Promise<Activity> =>
+        (await apiRequest(`user/${id}/performance`, "GET")).data;
 }
