@@ -6,9 +6,9 @@ import muscu from "../assets/icons/muscu.svg";
 import velo from "../assets/icons/velo.svg";
 
 function Aside() {
-    return <aside className="column justify-center align-center">
+    return <aside className="flex column justify-center align-center">
         <nav>
-            <ul className="column gap-15">
+            <ul className="flex column gap-15">
                 <AsideButton icon={meditation} alt="Meditation page"/>
                 <AsideButton icon={natation} alt="Natation page"/>
                 <AsideButton icon={velo} alt="Vélo page"/>

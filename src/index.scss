@@ -2,6 +2,11 @@
 @use "assets/global-style/colors";
 @use "assets/global-style/reset";
 
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
 .column {
     flex-direction: column;
 }
@@ -48,8 +53,10 @@
 
 #root {
     flex-direction: column;
+    width: 100%;
+    height: 100vh;
 
-    &, > div {
+    > div {
         width: 100%;
         height: 100%;
     }

@@ -3,13 +3,13 @@ import logo from "../assets/logo-full.png";
 import {memo} from "react";
 
 function Header() {
-    return <header className="gap-20">
+    return <header className="flex gap-20">
         <a href="#">
             <img src={logo} alt="SportSee logo"/>
         </a>
 
-        <nav>
-            <ul className="space-around align-center">
+        <nav className="flex">
+            <ul className="flex space-around align-center">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Profil</a></li>
                 <li><a href="#">Réglages</a></li>

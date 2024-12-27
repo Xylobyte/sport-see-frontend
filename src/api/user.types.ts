@@ -11,7 +11,7 @@ type UserInfos = {
     age: number;
 }
 
-export type User = {
+export type UserData = {
     id: number;
     userInfos: UserInfos;
     todayScore: number;

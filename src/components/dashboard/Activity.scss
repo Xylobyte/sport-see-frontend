@@ -1,0 +1,27 @@
+#activity-chart {
+    grid-column: 1 / 4;
+    background: var(--background-variant-color);
+    padding: 20px;
+
+    .chart-title {
+        font-weight: 500;
+    }
+
+    .legend li {
+        color: var(--gray-color);
+
+        &:before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: black;
+            display: inline-block;
+        }
+
+        &:last-child:before {
+            background: var(--primary-color);
+        }
+    }
+}

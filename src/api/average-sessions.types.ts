@@ -3,7 +3,7 @@ type SessionsData = {
     day: number;
 }
 
-export type AverageSessions = {
+export type AverageSessionsData = {
     userId: number;
     sessions: SessionsData[];
 }

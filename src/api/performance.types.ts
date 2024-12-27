@@ -5,7 +5,7 @@ type PerfData = {
     kind: number;
 }
 
-export type Performance = {
+export type PerformanceData = {
     userId: number;
     kind: KindData;
     data2: PerfData[];

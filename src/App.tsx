@@ -5,7 +5,7 @@ import Aside from "./components/Aside.tsx";
 const App = () => {
     return <>
         <Header/>
-        <div>
+        <div className="flex">
             <Aside/>
             <DashboardPage/>
         </div>

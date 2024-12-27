@@ -4,7 +4,7 @@ type SessionsData = {
     calories: number;
 }
 
-export type Activity = {
+export type ActivityData = {
     userId: number;
     sessions: SessionsData[];
 }

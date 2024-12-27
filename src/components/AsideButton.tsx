@@ -7,7 +7,7 @@ export type AsideButtonProps = {
 
 function AsideButton(props: AsideButtonProps) {
     return <li className="btn-aside">
-        <a href="#" className="align-center justify-center border-r6">
+        <a href="#" className="flex align-center justify-center border-r6">
             <img src={props.icon} alt={props.alt}/>
         </a>
     </li>;

@@ -27,23 +27,6 @@ body {
     color: var(--on-background-color);
 }
 
-div,
-button,
-section,
-article,
-main,
-nav,
-footer,
-header,
-aside,
-ul,
-ol,
-form,
-a.btn {
-    display: flex;
-    flex-direction: row;
-}
-
 ol,
 ul {
     list-style: none;
@@ -51,6 +34,7 @@ ul {
 
 h1 {
     font-size: 2.2rem;
+    font-weight: 500;
 }
 
 a {
