@@ -9,7 +9,7 @@ export type ActivityProps = {
 function Activity(props: ActivityProps) {
     return <section id="activity-chart" className="flex column border-r5 gap-20">
         <div className="flex space-between">
-            <span className="chart-title">Activité quotidienne</span>
+            <h2 className="chart-title">Activité quotidienne</h2>
 
             <ul className="legend flex gap-20 align-center">
                 <li>Poids (kg)</li>

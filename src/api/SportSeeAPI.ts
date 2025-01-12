@@ -12,7 +12,7 @@ export class SportSeeAPI {
         (await apiRequest(`user/${id}/activity`, "GET")).data;
 
     static getUserAverageSessions = async (id: number): Promise<AverageSessionsData> =>
-        (await apiRequest(`user/${id}/average-session`, "GET")).data;
+        (await apiRequest(`user/${id}/average-sessions`, "GET")).data;
 
     static getUserPerformance = async (id: number): Promise<PerformanceData> =>
         (await apiRequest(`user/${id}/performance`, "GET")).data;

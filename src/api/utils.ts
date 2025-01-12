@@ -36,7 +36,6 @@ const handleResponse = async (response: Response): Promise<any> => {
 };
 
 export const apiRequest = async (endpoint: string, method: ApiMethod, body?: Object): Promise<any> => {
-    console.log(Boolean(import.meta.env.VITE_USE_MOCK));
     const request = new Request(`${ROOT_URL}${endpoint}${USE_MOCK ? ".json" : ""}`, createRequestInit(method, body));
     const response = await fetch(request);
     return handleResponse(response);

@@ -9,6 +9,10 @@ import energy from "../assets/icons/energy.svg";
 import chicken from "../assets/icons/chicken.svg";
 import apple from "../assets/icons/apple.svg";
 import cheeseburger from "../assets/icons/cheeseburger.svg";
+import AverageSession from "../components/dashboard/AverageSession.tsx";
+import Intensity from "../components/dashboard/Intensity.tsx";
+import ScoreCounter from "../components/dashboard/ScoreCounter.tsx";
+import {AverageSessionsData} from "../api/average-sessions.types.ts";
 
 const queryParams = new URLSearchParams(window.location.search);
 const userId = parseInt(queryParams.get('userId') || "0");
@@ -16,6 +20,7 @@ const userId = parseInt(queryParams.get('userId') || "0");
 function DashboardPage() {
     const [user, setUser] = useState<UserData>();
     const [activity, setActivity] = useState<ActivityData>();
+    const [averageSessions, setAverageSessions] = useState<AverageSessionsData>();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string>();
 
@@ -30,6 +35,7 @@ function DashboardPage() {
         try {
             await fetchUser();
             await fetchActivity();
+            await fetchAverageSessions();
         } catch (e) {
             console.error(e);
             setError("Erreur de communication avec le serveur, verifiez votre connextion internet !");
@@ -48,6 +54,11 @@ function DashboardPage() {
         setActivity(data);
     };
 
+    const fetchAverageSessions = async () => {
+        const data = await SportSeeAPI.getUserAverageSessions(userId);
+        setAverageSessions(data);
+    };
+
     return <main className="flex column gap-20">
         {isLoading && !error ? <>
             <h1>Chargement des données...</h1>
@@ -58,7 +69,7 @@ function DashboardPage() {
                     Réessayer
                 </button>
             </div>
-        </> : user && activity && <>
+        </> : user && activity && averageSessions && <>
             <h1>Bonjour <span>{user.userInfos.firstName}</span></h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
@@ -66,7 +77,6 @@ function DashboardPage() {
                 <Activity activity={activity}/>
 
                 <InfoCard
-                    id="cal"
                     value={user.keyData.calorieCount}
                     unit="Kcal"
                     label="Calories"
@@ -74,7 +84,6 @@ function DashboardPage() {
                     icon={<img src={energy} alt=""/>}
                 />
                 <InfoCard
-                    id="cal"
                     value={user.keyData.proteinCount}
                     unit="g"
                     label="Proteines"
@@ -82,10 +91,11 @@ function DashboardPage() {
                     icon={<img src={chicken} alt=""/>}
                 />
 
-                <div style={{gridColumn: "1 / 4", gridRow: "3 / 5"}}></div>
+                <AverageSession averageSessions={averageSessions}/>
+                <Intensity/>
+                <ScoreCounter/>
 
                 <InfoCard
-                    id="cal"
                     value={user.keyData.proteinCount}
                     unit="g"
                     label="Glucides"
@@ -93,7 +103,6 @@ function DashboardPage() {
                     icon={<img src={apple} alt=""/>}
                 />
                 <InfoCard
-                    id="cal"
                     value={user.keyData.lipidCount}
                     unit="g"
                     label="Lipides"
