@@ -24,8 +24,9 @@ function AverageSession(props: AverageSessionProps) {
                         left: 10
                     }}
                     dataKey="day"
-                    tick={{stroke: "white"}}
-                    tickFormatter={val => dayArray?.[parseInt(val) - 1] || "L"}
+                    style={{fill: "white", fontSize: "0.8em"}}
+                    fontSize={2}
+                    tickFormatter={val => dayArray?.[parseInt(val) - 1] || ''}
                     axisLine={false}
                     tickLine={false}
                 />
@@ -40,13 +41,15 @@ function AverageSession(props: AverageSessionProps) {
                 <Line
                     type="monotone"
                     dot={false}
-                    activeDot={{ r: 7}}
+                    activeDot={{r: 7}}
                     dataKey="sessionLength"
                     stroke="#FFF"
-                    strokeWidth={3}
+                    strokeWidth={2}
                 />
             </LineChart>
         </ResponsiveContainer>
+
+        <div className="over"></div>
     </section>;
 }
 
