@@ -1,4 +1,21 @@
 #score-counter {
     grid-row: 3 / 5;
     background: var(--background-variant-color);
+    position: relative;
+
+    h2 {
+        font-weight: 500;
+        margin: 20px;
+    }
+
+    .recharts-wrapper {
+        align-self: center;
+        justify-self: center;
+    }
+
+    .data {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

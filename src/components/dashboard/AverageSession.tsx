@@ -1,6 +1,7 @@
 import "./AverageSession.scss";
 import {Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 import {AverageSessionsData} from "../../api/average-sessions.types.ts";
+import CustomCursor from "../charts/CustomCursor.tsx";
 
 export type AverageSessionProps = {
     averageSessions: AverageSessionsData;
@@ -37,6 +38,7 @@ function AverageSession(props: AverageSessionProps) {
                     itemStyle={{color: "black", display: "flex", flexDirection: "row-reverse"}}
                     separator=""
                     formatter={(value) => [value, "\xa0min"]}
+                    cursor={<CustomCursor/>}
                 />
                 <Line
                     type="monotone"

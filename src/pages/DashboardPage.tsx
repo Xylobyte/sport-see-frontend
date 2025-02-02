@@ -59,6 +59,8 @@ function DashboardPage() {
         setAverageSessions(data);
     };
 
+    console.log("User", user);
+
     return <main className="flex column gap-20">
         {isLoading && !error ? <>
             <h1>Chargement des données...</h1>
@@ -93,7 +95,7 @@ function DashboardPage() {
 
                 <AverageSession averageSessions={averageSessions}/>
                 <Intensity/>
-                <ScoreCounter/>
+                <ScoreCounter score={user.todayScore}/>
 
                 <InfoCard
                     value={user.keyData.proteinCount}

@@ -5,8 +5,11 @@ import {AverageSessionsData} from "./average-sessions.types.ts";
 import {PerformanceData} from "./performance.types.ts";
 
 export class SportSeeAPI {
-    static getUser = async (id: number): Promise<UserData> =>
-        (await apiRequest(`user/${id}`, "GET")).data;
+    static getUser = async (id: number): Promise<UserData> => {
+        const data: UserData = (await apiRequest(`user/${id}`, "GET")).data;
+        if (data.todayScore === undefined) data.todayScore = data.score || 0;
+        return data;
+    };
 
     static getUserActivity = async (id: number): Promise<ActivityData> =>
         (await apiRequest(`user/${id}/activity`, "GET")).data;

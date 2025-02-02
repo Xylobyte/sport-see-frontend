@@ -14,6 +14,7 @@ type UserInfos = {
 export type UserData = {
     id: number;
     userInfos: UserInfos;
-    todayScore: number;
+    todayScore?: number;
+    score?: number;
     keyData: KeyData;
 }
