@@ -13,6 +13,7 @@ import AverageSession from "../components/dashboard/AverageSession.tsx";
 import Intensity from "../components/dashboard/Intensity.tsx";
 import ScoreCounter from "../components/dashboard/ScoreCounter.tsx";
 import {AverageSessionsData} from "../api/average-sessions.types.ts";
+import {PerformanceData} from "../api/performance.types.ts";
 
 const queryParams = new URLSearchParams(window.location.search);
 const userId = parseInt(queryParams.get('userId') || "0");
@@ -21,6 +22,7 @@ function DashboardPage() {
     const [user, setUser] = useState<UserData>();
     const [activity, setActivity] = useState<ActivityData>();
     const [averageSessions, setAverageSessions] = useState<AverageSessionsData>();
+    const [userPerfs, setUserPerfs] = useState<PerformanceData>();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string>();
 
@@ -36,6 +38,7 @@ function DashboardPage() {
             await fetchUser();
             await fetchActivity();
             await fetchAverageSessions();
+			await fetchUserPerfs();
         } catch (e) {
             console.error(e);
             setError("Erreur de communication avec le serveur, verifiez votre connextion internet !");
@@ -59,7 +62,10 @@ function DashboardPage() {
         setAverageSessions(data);
     };
 
-    console.log("User", user);
+	const fetchUserPerfs = async () => {
+		const data = await SportSeeAPI.getUserPerformance(userId);
+		setUserPerfs(data);
+	};
 
     return <main className="flex column gap-20">
         {isLoading && !error ? <>
@@ -71,7 +77,7 @@ function DashboardPage() {
                     Réessayer
                 </button>
             </div>
-        </> : user && activity && averageSessions && <>
+        </> : user && user.todayScore && activity && averageSessions && userPerfs && <>
             <h1>Bonjour <span>{user.userInfos.firstName}</span></h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 
@@ -94,7 +100,7 @@ function DashboardPage() {
                 />
 
                 <AverageSession averageSessions={averageSessions}/>
-                <Intensity/>
+                <Intensity userPerfs={userPerfs}/>
                 <ScoreCounter score={user.todayScore}/>
 
                 <InfoCard

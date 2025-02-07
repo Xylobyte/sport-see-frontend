@@ -1,4 +1,11 @@
 #intensity {
     grid-row: 3 / 5;
     background: var(--gray-card-color);
+    color: white;
+
+    h2 {
+        font-weight: 500;
+        margin: 20px;
+        align-self: center;
+    }
 }

@@ -8,5 +8,5 @@ type PerfData = {
 export type PerformanceData = {
     userId: number;
     kind: KindData;
-    data2: PerfData[];
+    data: PerfData[];
 }
