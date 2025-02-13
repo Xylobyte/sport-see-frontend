@@ -15,6 +15,5 @@ export type UserData = {
     id: number;
     userInfos: UserInfos;
     todayScore?: number;
-    score?: number;
     keyData: KeyData;
 }
