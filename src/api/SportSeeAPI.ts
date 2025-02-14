@@ -4,8 +4,6 @@ import {ActivityData} from "./activity.types.ts";
 import {AverageSessionsData} from "./average-sessions.types.ts";
 import {PerformanceData} from "./performance.types.ts";
 
-export const USE_MOCK = false;
-
 export class SportSeeAPI {
 	static getUser = async (id: number): Promise<UserData> => {
 		const data: UserData & { score?: number } = (await apiRequest(`user/${id}`, "GET")).data;

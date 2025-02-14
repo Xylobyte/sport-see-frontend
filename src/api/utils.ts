@@ -1,8 +1,7 @@
-import {USE_MOCK} from "./SportSeeAPI.ts";
-
 export type ApiMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
-export const ROOT_URL = USE_MOCK ? "/mocks/" : 'http://localhost:3000/';
+export const USE_MOCK = false;
+const ROOT_URL = USE_MOCK ? "/mocks/" : 'http://localhost:3000/';
 
 export class HttpError extends Error {
     code: Number;
