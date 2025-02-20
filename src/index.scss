@@ -2,6 +2,10 @@
 @use "assets/global-style/colors";
 @use "assets/global-style/reset";
 
+div, section, main {
+    min-height: 0;
+}
+
 .flex {
     display: flex;
     flex-direction: row;
